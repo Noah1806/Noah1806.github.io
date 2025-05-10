@@ -1,0 +1,442 @@
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-ExtraBold.ttf') format('truetype');
+    font-weight: bolder;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Condensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: condensed;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-CondensedBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: condensed;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Light.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT-Walsheim';
+    src: url('fonts/GT-Walsheim-Regular-Trial.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT-Walsheim';
+    src: url('fonts/GT-Walsheim-Medium-Trial.otf') format('otf');
+    font-weight: medium;
+    font-style: normal;
+}
+
+
+
+.emoji {
+    font-family: "Noto Color Emoji", sans-serif;
+}
+
+
+body {
+    font-family: 'GT Walsheim Pro', sans-serif;
+}
+
+
+header {
+    background-color: #333;
+    color: white;
+    color-scheme: light dark;
+    text-align: left;
+    padding: 1em;
+}
+
+#startButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 5%;
+}
+
+#gameWindow{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 10px solid #ccc;
+    color: black;
+    text-align: center;
+    padding: 1em;
+}
+
+
+/* Standard-Stil für das Input-Feld */
+input[type="text"] {
+    width: 10%;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Stil für die Dropdown-Liste */
+ul.dropdown {
+    display: none;  /* Zunächst verborgen */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+}
+
+/* Stil für jedes Listenelement */
+ul.dropdown li {
+    padding: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+
+ul.dropdown li:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+
+
+
+
+
+/* Grundlegendes Styling für den Footer */
+footer {
+    background-color: #333; /* Dunkelgrau */
+    color: #fff;            /* Weißer Text */
+    padding: 20px 0;        /* Abstände oben und unten */
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-menu li {
+    margin: 10px 0;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-menu a:hover {
+    color: #f39c12; /* Gold beim Hover */
+}
+
+.footer-disclaimer p {
+    margin: 10px 0;
+}
+
+.footer-social a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-social a:hover {
+    color: #f39c12; /* Gold beim Hover */
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-menu,
+    .footer-disclaimer,
+    .footer-social {
+        margin-bottom: 20px;
+    }
+}
+
+
+/*Game Window*/
+
+#gameTitle{
+    font-family: 'DFLSans', sans-serif;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 40px;
+}
+
+#gameInfo{
+    font-family: 'DFLSans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 20px;
+}
+
+#time{
+    font-family: 'DFLSans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 19px;
+}
+
+
+#time{
+    font-family: 'DFLSans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 40px;
+}
+
+
+.match-container {
+    display: flex;
+    justify-content: center; /* Zentriert den Container */
+    align-items: center; /* Vertikal zentriert die Boxen */
+    gap: 40px; /* Abstand zwischen den Boxen */
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.team-box {
+    width: 130px;
+    height: 150px;
+    background-color: #ffffff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Zentriert den Inhalt vertikal */
+    align-items: center; /* Zentriert den Inhalt horizontal */
+    padding: 10px;
+    text-align: center;
+}
+
+
+#homeShort, #awayShort, #actionText{
+    font-family: 'DFLSans', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 40px;
+}
+
+
+
+#homeScore, #awayScore{
+    font-family: 'DFLSans', sans-serif;
+    font-weight: bold;
+    font-style: condensed;
+    font-size: 90px;
+}
+
+/*Ligensimulation*/
+
+#leagueselect{
+    display: flex;
+    gap: 30px;
+}
+
+#bulilogo, #secbulilogo, #drligalogo, #premlogo, #eredivisielogo, #laligalogo, #seriealogo{
+    width: 10%;
+    height: auto;
+    cursor: pointer;
+}
+
+#cllogo, #ellogo, #ecllogo, #dfblogo{
+    width: 10%;
+    height: auto;
+    cursor: pointer;
+}
+
+/*Tabellen*/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: darkred;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/*Turnierbaum*/
+
+/*QUALIFIERS*/
+
+.qualBox{
+    background-color: grey;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    
+
+    font-family: 'GT-Walsheim', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.matchBox {
+    display: flex;
+    flex-direction: column; /* Elemente untereinander platzieren */
+
+}
+
+
+.qualMatch {
+    width: 200px;  /* Oder je nach Bedarf */
+    height: 30px;
+    text-align: center;
+    background-color: rgb(64, 64, 64);
+    border: 2px solid rgb(190, 190, 190);
+    padding: 10px;
+    margin: 8px;
+    border-radius: 15px; /* Abrundung der Ecken */
+
+    display: flex;
+    align-items: center; /* Text nach oben schieben */
+    justify-content: center; /* Horizontal zentrieren */
+}
+
+.draw {
+    width: 100px;  /* Oder je nach Bedarf */
+    height: 100px;
+    text-align: center;
+    background-color: rgb(64, 64, 64);
+    border: 2px solid rgb(190, 190, 190);
+    padding: 10px;
+    margin: 20px;
+    border-radius: 15px; /* Abrundung der Ecken */
+
+    display: flex;
+    align-items: center; /* Text nach oben schieben */
+    justify-content: center; /* Horizontal zentrieren */
+}
+
+
+
+
+
+
+
+/*RO16*/
+
+#tournament {
+    background-color: grey;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: none; /* Behalten wir so */
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 1500%; /* Statt fester Breite */
+    max-width: 1900px; /* Optional: Maximale Breite */
+}
+
+.tournament {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Für bessere Responsivität */
+    width: 100%; /* Stellt sicher, dass es die volle Breite nutzt */
+}
+
+.round {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.match {
+    border: 2px solid white;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.final {
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 200px;
+}
+
+#winner {
+    text-align: center;
+}
+
+
+

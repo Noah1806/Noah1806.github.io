@@ -1,0 +1,190 @@
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fussball Simulation Hub - Europa Saison Simulation</title>
+
+    <link rel="stylesheet" href="./fonts/GTWalsheim/gtwalsheim.css">
+    <link rel="stylesheet" href="worldsim.css">
+</head>
+<body>
+    
+    <h1 class = "bigheader">Fussball Simulation Hub</h1>
+    <h2 class = "mediumheader">Saison Simulation</h2>
+
+    <h3 style="font-size: 200%;">Menü:</h3>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="singlegamesim.html">Simuliere einzelne Spiele</a></li>
+                <li><a href="tablesim.html">Simuliere Tabellen und Turniere</a></li>
+                <li><a href="seasonsim.html">Simuliere eine Saison</a></li>
+                <li><a href="worldsim.html">Simuliere mehrere Saisons (Alle Top Ligen Europas)</a></li>
+                <li><a href="creditswsources.html">Credits & Quellen</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id = "promptField">
+        <div id= "promptWindow">
+            <h2>Warnung</h2>
+            <div>Diese Option simuliert die ganze Saison auf einmal, du kannst dies nicht rückgängig machen, außer du startest eine neue Saison.</div>
+            <h3>Möchtest du simulieren?</h3>
+            <div id = "buttonsDiv">
+                <button id="yes" onclick="simSeason(1)">Ja, simuliere</button>
+                <button id="no" onclick="simSeason(2)" >Nein, zurück</button>
+            </div>
+        </div>
+    </div>
+
+    <div id = "loadingScreen">
+        <div id="loadingWindow">
+            <h2>Laden</h2>
+            <div class="loadingScene">
+                <div class="grass"></div>
+                <div class="loadingBall"></div>
+            </div>
+            <div>Seite nicht neu laden oder schließen, da sonst der Fortschritt gelöscht wird..</div>
+            <h6 id = "loadingText"></h6>
+            <h3>Dies kann einige Zeit dauern, nicht wundern.</h3>
+        </div>        
+    </div>
+
+    <div id="buttonsMenu">
+        <br>
+        <div>Shortcuts:</div>
+        <button class = "menuButton" id = "goToLeagueSelect" onclick="menuButton('leagueselect')">Ligen</button>
+        <button class = "menuButton" id = "goToGames" onclick="menuButton('seasonsim')">Spiele</button>
+        <button class = "menuButton" id = "goToTable" onclick="menuButton('tableHeader')">Tabelle</button>
+    </div>
+
+    <h1 id = "seasonYear">Saison 2024/2025</h1>
+    <div id = "leagueselect">
+        <h2>Ligenauswahl</h2>
+        <div id="leagues">
+            <div id = "germany" class = "countryDiv">
+                <div>Deutschland:</div>
+                <br>
+                <img class="leagueLogo" id="bulilogo" src="/imgs/leagues/bundesliga.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="bundesligaclick()">
+                <img class="leagueLogo" id="secbulilogo" src="/imgs/leagues/2bundesliga.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="secbundesligaclick()">
+                <img class="leagueLogo" id="drligalogo" src="/imgs/leagues/3liga.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="drligaclick()">
+            </div>
+            <div id = "england" class = "countryDiv">
+                <div>England:</div>
+                <br>
+                <img class="leagueLogo" id="premlogo" src="/imgs/leagues/premierleague.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="premclick()">
+                <img class="leagueLogo" id="eflclogo" src="/imgs/leagues/championship.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="eflcclick()">
+                <img class="leagueLogo" id="league1logo" src="/imgs/leagues/eflleagueone.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="league1click()">
+            </div>
+            <div id = "spain" class = "countryDiv">
+                <div>Spanien:</div>
+                <br>
+                <img class="leagueLogo" id="laligalogo" src="/imgs/leagues/laliga.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="laligaclick()">
+                <img class="leagueLogo" id="laliga2logo" src="/imgs/leagues/laliga2.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="laliga2click()">
+            </div>
+            <div id = "italy" class = "countryDiv">
+                <div>Italien:</div>
+                <br>
+                <img class="leagueLogo" id="seriealogo" src="/imgs/leagues/seriea.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="serieaclick()">
+                <img class="leagueLogo" id="serieblogo" src="/imgs/leagues/serieb.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="seriebclick()">
+            </div>
+            <div id = "france" class = "countryDiv">
+                <div>Frankreich:</div>
+                <br>
+                <img class="leagueLogo" id="ligue1logo" src="/imgs/leagues/ligue1.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="ligue1click()">
+                <img class="leagueLogo" id="ligue2logo" src="/imgs/leagues/ligue2.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="ligue2click()">
+            </div>
+            <div id="netherlands" class = "countryDiv">
+                <div>Niederlande:</div>
+                <br>
+                <img class="leagueLogo" id="eredivisielogo" src="/imgs/leagues/eredivisie.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="eredivisieclick()">
+                <img class="leagueLogo" id="eerstedivisielogo" src="/imgs/leagues/eerstedivisie.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="eerstedivisieclick()">
+            </div>
+            <div id="international" class = "countryDiv">
+                <div>International:</div>
+                <br>
+                <img class="leagueLogo" id="cllogo" src="/imgs/leagues/championsleague.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="clclick()">
+                <img class="leagueLogo" id="ellogo" src="/imgs/leagues/europaleague.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="elclick()">
+                <img class="leagueLogo" id="ecllogo" src="/imgs/leagues/conferenceleague.png" alt="" onerror="this.src='/imgs/teams/placeholder.png'" onclick="eclclick()">
+
+            </div>
+            
+            
+        </div>
+        
+    </div>
+
+    <br>
+
+
+    <div id = "seasonsim" style="display: none;">
+        <div id = "gameDayButtonsDiv">
+            <button class = "gameDayButton" onclick="prevGameDay()">&lt;</button>
+            <h3 class = "underheader" id = "curGameDay">Spieltag: 1</h3>
+            <button class = "gameDayButton" onclick="nextGameDay()">&gt;</button>
+        </div>
+
+        <br>
+
+        <div id = "gameDays" class = "gameDays">
+            <div class = "gameDay" id = "gameDayTemplate">
+                <div class="game" style="display: none;">
+                    <div class="team-container">
+                        <div id="team1">FC Bayern München</div>
+                        <img id="team1logo" class="teamcrest" src="./imgs/teams/Bundesliga/placeholder.png" alt="">
+                    </div>
+                
+                    <div id="score" class="score">TBD</div>
+                
+                    <div class="team-container">
+                        <img id="team2logo" class="teamcrest" src="./imgs/teams/Bundesliga/placeholder.png" alt="">
+                        <div id="team2">Bayer 04 Leverkusen</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;" >
+            <button id = "simButton" onclick="simGameDay();">Simuliere Spieltag</button>
+            <button id = "simSeasonButton" onclick="simSeason(0)">Simuliere Saison</button>
+            <button id = "newSeasonButton" onclick="newSeason()" style="display: none;">Nächste Saison</button>
+        </div>
+
+    </div>
+
+
+    <h2 hidden id="tableHeader">Tabelle:</h2>
+
+    <table id = table style="display: none;">    
+        <thead class = "thead">
+            <tr>
+                <th>#</th>
+                <th></th>
+                <th>SP</th>
+                <th>G</th>
+                <th>U</th>
+                <th>V</th>
+                <th>+/-</th>    
+                <th>TD</th>
+                <th>PKT</th>
+            </tr>
+        </thead>
+        <tbody id = tablethings></tbody>
+    </table>
+
+    <div id = "tableFooter">
+        <h2>Infos:</h2>
+        <h3>Spielplan:</h3>
+        <h5>Der Spielplan wird anhand eines Schlüsselsystems generiert. <br>Er hat nichts mit den offizielen Spielplänen der Ligenverbände zu tun. <br>Damit ich nicht für jede Liga den Spielplan händisch für jede Saison erstellen muss, bin ich auf den Entschluss gekommen es so zu generieren. <br>Denn: Jedes Team muss ja sowieso zweimal gegen jedes antreten, es ist demnach egal.</h5>
+        <h3>Tabelle:</h3>
+        <h5>'#': Tabellenposition <br>'SP': Absolvierte Spiele <br>'G'; 'U'; 'V': Siege, Unentschieden und Niederlagen <br>'+/-': Geschossene Tore / Gegentore <br>'TD': Tordifferenz <br>'PKT': Punkte</h5>
+        <h3>Sonstige Abkürzungen:</h3>
+        <h5>'TBD': "To Be Determined" - Beutet übersetzt: Das Spiel ist noch nicht gespielt bzw. simuliert worden.</h5>
+    </div>
+    </div>
+
+    
+    <script src="teams.js"></script>
+    <script src="worldsim.js"></script>
+</body>
+</html>

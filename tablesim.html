@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fussball Sim Hub - Simuliere Tabellen/Turniere</title>
+    <link rel="stylesheet" href="./fonts/GTWalsheim/gtwalsheim.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <h1>Fussball Simulation Hub</h1>
+
+    <h2>Tabellen und Turniere</h2>
+    <h3>Menü:</h3>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="singlegamesim.html">Simuliere einzelne Spiele</a></li>
+                <li><a href="tablesim.html">Simuliere Tabellen und Turniere</a></li>
+                <li><a href="seasonsim.html">Simuliere eine Saison</a></li>
+                <li><a href="worldsim.html">Simuliere mehrere Saisons (Alle Top Ligen Europas)</a></li>
+                <li><a href="creditswsources.html">Credits & Quellen</a></li>
+            </ul>
+        </nav>
+    
+    </header>
+    
+    
+
+    <h2>Ligen:</h2>
+    <br>
+    <div id = "leagueselect">
+        <img id = bulilogo src="/imgs/leagues/bundesliga.png" alt="" onclick = "bundesligaclick()">
+        <img id = secbulilogo src="/imgs/leagues/2bundesliga.png" alt="" onclick = "secbundesligaclick()">
+        <img id = drligalogo src="/imgs/leagues/3liga.png" alt="" onclick = "drligaclick()">
+        <img id = premlogo src="/imgs/leagues/premierleague.png" alt="" onclick = "premclick()">
+        <img id = eredivisielogo src="/imgs/leagues/eredivisie.png" alt="" onclick = "eredivisieclick()">
+        <img id = laligalogo src="/imgs/leagues/laliga.png" alt="" onclick = "laligaclick()">
+        <img id = seriealogo src="/imgs/leagues/seriea.png" alt="" onclick = "serieaclick()">
+    </div>
+
+    <br>
+    <h2>Turniere:</h2> 
+    <br>
+    <div id = "competitionselect">
+        <img id = cllogo src="/imgs/leagues/championsleague.png" alt="" onclick = "clclick()">
+        <img id = ellogo src="/imgs/leagues/europaleague.png" alt="" onclick = "elclick()">
+        <img id = ecllogo src="/imgs/leagues/conferenceleague.png" alt="" onclick = "eclclick()">
+        <img id = dfblogo src="/imgs/leagues/dfbpokal.png" alt="" onclick = "dfbclick()">
+    </div>
+
+    <br>
+
+    <h3 id = header hidden = true>Simulierte Tabelle - LIGA:</h3>
+
+    <br>
+    
+    <table id = table hidden = true>    
+        <thead>
+            <tr>
+                <th>#</th>
+                <th></th>
+                <th>SP</th>
+                <th>G</th>
+                <th>U</th>
+                <th>V</th>
+                <th>+/-</th>    
+                <th>TD</th>
+                <th>PKT</th>
+            </tr>
+        </thead>
+        <tbody id = tablethings>
+            
+            <!-- Weitere Teams hier -->
+        </tbody>
+    </table>
+
+    <div hidden id = "vtablefooter">
+        <h3>Legende:</h3>
+        <h4 id="text"></h4>
+    </div>
+
+
+    <button id = koButton hidden = true onclick = koClick()>Play-off's</button>
+
+
+    <div id = "qualifiers" hidden>
+        <div class="qualBox" id = "qualBox1">
+            <div class = "draw" id = "draws1">TBL15 & <br> TBL16</div>
+
+            <div class = "matchBox">
+                <div class = "qualMatch" id = "match1">TBD&emsp;0 - 0&emsp;TBD</div>
+                <div class = "qualMatch" id = "match2">TBD&emsp;0 - 0&emsp;TBD</div>
+            </div>
+
+            <div class = "draw" id = "draws2">TBL17 & <br> TBL18</div>
+        </div>
+
+        <div class="qualBox" id = "qualBox2">
+            <div class = "draw" id = "draws3">TBL9 & <br> TBL10</div>
+
+            <div class = "matchBox">
+                <div class = "qualMatch" id = "match1">TBD&emsp;0 - 0&emsp;TBD</div>
+                <div class = "qualMatch" id = "match2">TBD&emsp;0 - 0&emsp;TBD</div>
+            </div>
+
+            <div class = "draw" id = "draws4">TBL23 & <br> TBL24</div>
+        </div>
+
+        <div class="qualBox" id = "qualBox3">
+            <div class = "draw" id = "draws5">TBL11 & <br> TBL12</div>
+
+            <div class = "matchBox">
+                <div class = "qualMatch" id = "match1">TBD&emsp;0 - 0&emsp;TBD</div>
+                <div class = "qualMatch" id = "match2">TBD&emsp;0 - 0&emsp;TBD</div>
+            </div>
+
+            <div class = "draw" id = "draws6">TBL21 & <br> TBL22</div>
+        </div>
+
+        <div class="qualBox" id = "qualBox4">
+            <div class = "draw" id = "draws7">TBL13 & <br> TBL14</div>
+
+            <div class = "matchBox">
+                <div class = "qualMatch" id = "match1">TBD&emsp;0 - 0&emsp;TBD</div>
+                <div class = "qualMatch" id = "match2">TBD&emsp;0 - 0&emsp;TBD</div>
+            </div>
+
+            <div class = "draw" id = "draws8">TBL19 & <br> TBL20</div>
+        </div>
+
+        <div>
+            <h3>Erklärung:</h3>
+            <h4>Die Teams werden je nach Tabellenposition ausgelost. Danach findet jeweils ein Hin- und Rückspiel statt. Das Ergebnis ist also das Hinspiel addiert mit dem Rückspiel. (Dies erklärt die teils hohen Siege) <br>Abkürzungen: <br>'n.V.': Bedeutet "Nach Verlängerung" <br>'n.E.': Bedeutet "Nach Elfmeterschießen"</h4>
+        </div>
+    </div>
+
+    <div id = "tournament" hidden = true>
+        <div class="tournament" id = "finalstage">
+            <div class="round" id = "ro16">
+                <div id="match1" class = "match">TBD</div>
+                <div id="match2" class = "match">TBD</div>
+                <br>
+                <div id="match3" class = "match">TBD</div>
+                <div id="match4" class = "match">TBD</div>
+            </div>
+
+            <br>
+
+            <div class="round" id = "quart">
+                <br>
+                <div id="quart1" class = "match">TBD</div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="quart2" class = "match">TBD</div>
+            </div>
+
+            <br>
+            
+            <div class="round" id = "half">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="half1" class = "match">TBD</div>
+            </div>
+
+            <br>
+    
+            <div class="round" id = "final">
+                <h2 id = "winner"></h2>
+                <div id="final" class = "match final">TBD</div>
+            </div>
+
+            <br>
+    
+            <div class="round" id = "half">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="half2" class = "match">TBD</div>
+            </div>
+
+            <br>
+    
+            <div class="round" id = "quart">
+                <br>
+                <div id="quart3" class = "match">TBD</div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="quart4" class = "match">TBD</div>
+            </div>
+
+            <br>
+
+            <div class="round" id = "ro16">
+                <div id="match5" class = "match">TBD</div>
+                <div id="match6" class = "match">TBD</div>
+                <br>
+                <div id="match7" class = "match">TBD</div>
+                <div id="match8" class = "match">TBD</div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <div id = "fsfooter" hidden>
+        <h3>Erklärung:</h3>
+        <h4>Die besten 8 der Tabelle, spielen gegen die 8 Sieger der Play-off's. Wer genau das ist, wird ausgelost. Dann finden, bis auf das Finale, jeweils Hin- und Rückspiel in der jeweiligen Phase statt. Der Gesamtsieger der Hin- und Rückspiele kommt weiter. Es gibt keine Auswärtstorregel.</h4>
+    </div>
+
+    <h3 hidden id = "tableheader">Tabelle:</h3>
+
+    <div id = comp>
+        <table id = inttable hidden = true>    
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th></th>
+                    <th>SP</th>
+                    <th>G</th>
+                    <th>U</th>
+                    <th>V</th>
+                    <th>+/-</th>    
+                    <th>TD</th>
+                    <th>PKT</th>
+                </tr>
+            </thead>
+            <tbody id = inttablethings>
+                
+                <!-- Weitere Teams hier -->
+            </tbody>
+        </table>
+    </div>
+
+    <div hidden id = "tablefooter">
+        <h3>Legende:</h3>
+        <h4>Abkürzungen: <br>'#': Tabellenposition <br>'SP': Absolvierte Spiele <br>'G'; 'U'; 'V': Siege, Unentschieden und Niederlagen <br>'+/-': Geschossene Tore / Gegentore <br>'TD': Tordifferenz <br>'PKT': Punkte <br><br>Farben: <br>Grün: Direkte Qualifikation für das Achtelfinale (Plätze 1-8) <br>Gelb: Qualifikation für die Play-Off's (9-24).</h4>
+    </div>
+
+
+    
+    
+
+
+
+    
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    < <footer>
+        <div class="footer-container">
+            <div class="footer-disclaimer">
+                <p>&copy; Disclaimer: Diese Website ist ein Freizeitprojekt von mir. Ich verdiene <b>kein Geld</b> mit dieser Website. Alle von mir genutzten Quellen (Bilder, Statistiken usw.) habe ich im Reiter <a href="creditswsources.html">Credits & Quellen</a> verlinkt.</p>
+            </div>
+        </div>
+    </footer>
+    
+        
+    <script src="teams.js"></script> <!-- Zuerst die Teams-Daten -->
+    <script src="tablesim.js"></script>
+    <script src="compsim.js"></script>
+</body>
+
+</html>

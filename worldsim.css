@@ -1,0 +1,442 @@
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-ExtraBold.ttf') format('truetype');
+    font-weight: bolder;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Condensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: condensed;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-CondensedBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: condensed;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DFLSans';
+    src: url('fonts/DFLSans-Light.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+
+
+body {
+    font-family: 'GT Walsheim Pro', sans-serif;
+}
+
+
+header {
+    background-color: #333;
+    color: white;
+    color-scheme: light dark;
+    text-align: left;
+    padding: 1em;
+}
+
+#startButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 5%;
+}
+
+#gameWindow{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 10px solid #ccc;
+    color: black;
+    text-align: center;
+    padding: 1em;
+}
+
+
+.bigheader{
+    font-size: 250%;
+    text-align: center;
+    font-family: 'GT Walsheim Pro', sans-serif;
+    font-weight: 1000;
+    font-style: normal;
+    font-variant-alternates: styleset(ss01);
+}
+
+.mediumheader{
+    font-size: 150%;
+    text-align: center;
+    font-family: 'GT Walsheim Pro', sans-serif;
+    font-weight: 1000;
+    font-style: normal;
+    font-variant-alternates: styleset(ss01);
+}
+
+
+.underheader{
+    font-size: 200%;
+    font-weight: 600;
+}
+
+ul{
+    font-size: 150%;
+    font-family: 'GT Walsheim Pro', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+#buttonsMenu {
+    display: flex;
+    justify-content: center;  /* Zentriert die Buttons horizontal */
+    align-items: center;      /* Zentriert die Buttons vertikal innerhalb des Containers */
+    position: fixed;
+    top: 0;                   /* Positioniert das Menü ganz oben */
+    left: 0;                /* Zentriert das Menü horizontal */
+    z-index: 999;
+    gap: 5px;                /* Optional: Abstand zwischen den Buttons */
+    background-color: #0000008b;
+}
+
+#buttonsMenu button {
+    padding: 5px;
+    box-sizing: border-box;    /* Verhindert, dass Padding die Gesamtbreite beeinflusst */
+}
+
+#buttonsMenu div {
+    color: white;
+}
+
+
+
+
+#leagues {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* optionaler Abstand */
+}
+
+.countryDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.leagueLogo {
+    width: 80px;
+    padding: 10px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.1s ease-in;
+    max-height: 100%;
+}
+
+.leagueLogo:hover {
+    transform: scale(1.15); /* 45px bei 40px Basisbreite entspricht 1.125 */
+}
+
+
+#gameDayButtonsDiv{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.gameDayButton{
+    background-color: red;
+    color: white;
+    padding: 0; /* Kein Padding, damit das Verhältnis perfekt bleibt */
+    border: none;
+    cursor: pointer;
+    width: 5rem; /* Skaliert mit der Schriftgröße des Root-Elements */
+    aspect-ratio: 1 / 1; /* Immer quadratisch */
+    font-weight: 600;
+    font-size: 2rem; /* Skaliert mit der Seite */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+    transition: all 0.1s ease-in-out;
+    transition-delay: 0.05s;
+}
+
+.gameDayButton:hover {
+    background-color: rgb(33, 94, 35);
+    width: 5.4rem;
+}
+
+
+.gameDay {
+    display: flex;
+    flex-direction: column; /* Stellt die Elemente untereinander */
+    justify-content: center; /* Falls nötig, mittig im übergeordneten Container */
+    width: 100%; /* Falls nötig, damit sich die Elemente richtig ausrichten */
+    /*background-color: #333;
+    color: white;*/
+    border-radius: 5px;
+}
+
+
+
+.game {
+    display: flex;
+    justify-content: center; /* Teams und Score in der Mitte */
+    align-items: center;
+    gap: 20px; /* Platz zwischen den Elementen */
+    border-radius: 20px;
+    transition: gap 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition-delay: 0.05s;
+}
+
+.game:hover {
+    background-color: #d6d6d6;
+    gap: 5px;
+}
+
+#team1, #team2, #score{
+    cursor: default;
+    transition: text 0.2s ease-in-out;
+    transition-delay: 0.1s;
+}
+
+
+.team-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Abstand zwischen Logo & Text */
+}
+
+.team-container:first-child {
+    justify-content: flex-end;
+    text-align: right;
+    flex: 1; /* Sorgt dafür, dass das Heimteam nach rechts rückt */
+}
+
+.team-container:last-child {
+    justify-content: flex-start;
+    text-align: left;
+    flex: 1; /* Sorgt dafür, dass das Auswärtsteam nach links rückt */
+}
+
+#score {
+    min-width: 50px; /* Feste Breite, damit es nicht verrutscht */
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+}
+
+
+#gameTemplate{
+    display: none;
+}
+
+.teamcrest {
+    max-width: 40px;  /* Setzt die maximale Breite */
+    max-height: 40px; /* Setzt die maximale Höhe */
+    width: auto;      /* Skaliert proportional */
+    height: auto;     /* Skaliert proportional */
+    object-fit: contain; /* Stellt sicher, dass das Bild nicht verzerrt wird */
+    margin: 10px; 
+}
+
+#simButton, #simSeasonButton, #newSeasonButton{
+    margin: 20px;
+    color: white;
+    background-color: red;
+    border-color: darkred;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: width 0.2s ease-in-out, font-size 0.2s ease-in-out;
+    transition-delay: 0.05s;
+}
+#simButton:hover, #simSeasonButton:hover, #newSeasonButton:hover{
+    background-color: #850000;
+    font-size: 21px;
+    width: 205px;
+}
+
+
+/*Prompt*/
+
+#promptField, #loadingScreen, #infoPrompt {
+    display: none; /* Startet als verborgen */
+    position: fixed; /* Positioniert das Element relativ zum Browserfenster */
+    top: 0;
+    left: 0;
+    width: 100%; /* Deckt die gesamte Breite des Bildschirms ab */
+    height: 100%; /* Deckt die gesamte Höhe des Bildschirms ab */
+    background-color: rgba(0, 0, 0, 0.5); /* Halbtransparenter Hintergrund */
+    z-index: 1000; /* Setzt die Ebene auf oberste Priorität */
+    justify-content: center; /* Zentriert das Fenster horizontal */
+    align-items: center; /* Zentriert das Fenster vertikal */
+}
+
+#promptWindow, #loadingWindow, #infoPromptWindow {
+    background-color: white; /* Hintergrundfarbe des Fensters */
+    padding: 20px;
+    border-radius: 10px; /* Abgerundete Ecken */
+    width: 300px; /* Breite des Fensters */
+    text-align: center; /* Zentriert den Text im Fenster */
+}
+
+.loadingScene {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px auto;
+}
+
+.loadingBall {
+    width: 60px;
+    height: 60px;
+    background-image: url("imgs/fussball.png"); /* ⚠️ Pfad zum Bild */
+    background-size: cover;
+    border-radius: 50%;
+    animation: rotateBall 1s linear infinite;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.grass {
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Fixiere die linke Seite */
+    width: 0%; /* Anfangszustand: 0% */
+    height: 20px;
+    background: linear-gradient(to top, #3f9b0b, #5fcf15);
+    border-radius: 10px;
+    z-index: 1;
+    /* transform: translateX(-50%); <- Entferne diese Zeile */
+    transition: width 0.3s ease; /* Optional: für sanfte Animation */
+}
+
+@keyframes rotateBall {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+
+
+#buttonsDiv, #buttonsDiv2, #infoButtonsDiv {
+    margin-top: 20px;
+}
+
+#yes, #no, #yes2, #no2 {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: font-size 0.1s ease-in-out;
+    transition-delay: 0.05s;
+}
+#yes:hover, #no:hover, #yes2:hover, #no2:hover {
+    background-color: #18701b;
+    font-size: 17px;
+}
+
+
+/*Tabellen*/
+
+table {
+    width: 60%;
+    justify-self: center;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    align-content: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: darkred;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.tableTeamcrest {
+    max-width: 20px;  /* Setzt die maximale Breite */
+    max-height: 20px; /* Setzt die maximale Höhe */
+    width: auto;      /* Skaliert proportional */
+    height: auto;     /* Skaliert proportional */
+    object-fit: contain; /* Stellt sicher, dass das Bild nicht verzerrt wird */
+    padding: 5px;
+}
+
+#tableHeader{
+    justify-self: center;
+}
+
+#infoButton{
+    font-family: serif;
+    background-color: rgba(146, 146, 146, 0.401);
+    border-radius: 20%;
+    border: none;
+    width: 20px;
+    height: 20px;
+    font-size: x-small;
+    color: black;
+    transition: all 0.2s ease-in-out;
+}
+#infoButton:hover{
+    background-color: rgb(194, 194, 194);
+    width: 22px;
+    height: 22px;
+    font-size: small;
+}

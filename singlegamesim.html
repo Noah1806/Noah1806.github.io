@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fussball Sim Hub - Simuliere einzelne Spiele</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <h1>Fussball Simulation Hub</h1>
+
+    <h2>Simuliere einzelne Spiele</h2>
+    <h3>Menü:</h3>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="singlegamesim.html">Simuliere einzelne Spiele</a></li>
+                <li><a href="tablesim.html">Simuliere Tabellen und Turniere</a></li>
+                <li><a href="seasonsim.html">Simuliere eine Saison</a></li>
+                <li><a href="worldsim.html">Simuliere mehrere Saisons (Alle Top Ligen Europas)</a></li>
+                <li><a href="creditswsources.html">Credits & Quellen</a></li>
+            </ul>
+        </nav>
+    
+    </header>
+    
+    
+    <div id = "homeTeamSelect">
+        <label for="searchHome">Heimteam:</label>
+        <input type="text" id="searchHome" placeholder="Suche nach einem Team...">
+        <ul id="teamListHome" class="dropdown"></ul> <!-- Gefilterte Teams für Heimteam werden hier angezeigt -->
+    </div>
+    
+    <div id = "awayTeamSelect">
+        <label for="searchAway">Auswärtsteam:</label>
+        <input type="text" id="searchAway" placeholder="Suche nach einem Team...">
+        <ul id="teamListAway" class="dropdown"></ul> <!-- Gefilterte Teams für Auswärtsteam werden hier angezeigt -->
+    </div>
+    
+    <button id = "startButton">Start</button>
+    
+
+    <div id="gameWindow" hidden = true>
+        <h2>Spiel:</h2>
+        <h3 id="gameTitle"></h3>
+        <h5 id="gameInfo"></h5>
+        <label id="time"></label>
+        <div class="match-container">
+            <div class="team-box">
+                <label id="homeShort"></label>
+                <label id="homeScore">0</label>
+            </div>
+        
+            <div class="team-box">
+                <label id="awayShort"></label>
+                <label id="awayScore">0</label>
+            </div>
+        </div>
+        <br>
+        <label id="actionText"></label>
+    </div> 
+
+
+
+    
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    < <footer>
+        <div class="footer-container">
+            <div class="footer-disclaimer">
+                <p>&copy; Disclaimer: Diese Website ist ein Freizeitprojekt von mir. Ich verdiene <b>kein Geld</b> mit dieser Website. Alle von mir genutzten Quellen (Bilder, Statistiken usw.) habe ich im Reiter <a href="creditswsources.html">Credits & Quellen</a> verlinkt.</p>
+            </div>
+        </div>
+    </footer>
+    
+        
+    <script src="teams.js"></script> <!-- Zuerst die Teams-Daten -->
+    <script src="sgsscript.js"></script>
+</body>
+
+</html>

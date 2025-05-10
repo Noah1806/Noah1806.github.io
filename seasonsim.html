@@ -1,0 +1,153 @@
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fussball Simulation Hub - Saison Simulation</title>
+
+    <link rel="stylesheet" href="./fonts/GTWalsheim/gtwalsheim.css">
+    <link rel="stylesheet" href="seasonstyle.css">
+</head>
+<body>
+    <br>
+    <h1 class = "bigheader">Fussball Simulation Hub</h1>
+    <h2 class = "mediumheader">Saison Simulation</h2>
+
+    <h3 style="font-size: 200%;">Menü:</h3>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="singlegamesim.html">Simuliere einzelne Spiele</a></li>
+                <li><a href="tablesim.html">Simuliere Tabellen und Turniere</a></li>
+                <li><a href="seasonsim.html">Simuliere eine Saison</a></li>
+                <li><a href="worldsim.html">Simuliere mehrere Saisons (Alle Top Ligen Europas)</a></li>
+                <li><a href="creditswsources.html">Credits & Quellen</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id = "promptField">
+        <div id= "promptWindow">
+            <h2>Warnung</h2>
+            <div>Diese Option simuliert die ganze Saison auf einmal, du kannst dies nicht rückgängig machen, außer du startest eine neue Saison.</div>
+            <h3>Möchtest du simulieren?</h3>
+            <div id = "buttonsDiv">
+                <button id="yes" onclick="simSeason(1)">Ja, simuliere</button>
+                <button id="no" onclick="simSeason(2)" >Nein, zurück</button>
+            </div>
+        </div>
+    </div>
+
+    <div id = "promptField2">
+        <div id= "promptWindow2">
+            <h2>Warnung</h2>
+            <div>Beim Bestätigen wird die jetzige Saison gelöscht, um eine neue zu erstellen.</div>
+            <h3>Möchtest du fortfahren?</h3>
+            <div id = "buttonsDiv2">
+                <button id="yes" onclick="setupNew(false)">Ja, fortfahren</button>
+                <button id="no2" onclick="document.getElementById('promptField2').style.display = 'none'"" >Nein, zurück</button>
+            </div>
+        </div>
+    </div>
+
+    <div id = "infoPrompt">
+        <div id= "infoPromptWindow">
+            <h2>Experimentalmodus</h2>
+            <p>Beim aktivieren des Experimentalmodus, werden die Teams anhand aktueller Form stärker oder schwächer. <br>Das heißt: gewinnen sie gegen ein besseres Team, gewinnen sie möglicherweise an Stärke, <br>verlieren sie jedoch gegen einen Abstiegskandidaten, könnten sie schwächer werden <br>Das könnte Überraschungen fördern und zum Realismus beitragen.</p>
+            <div id = "infoButtonsDiv">
+                <button id="yes" onclick="document.getElementById('infoPrompt').style.display = 'none'">Zurück</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id = "leagueselect">
+        <h3 class = "underheader">Wähle die Liga für deine Saisonsimulation aus</h3>
+
+        <div id="leagues">
+            <img class="leagueLogo" id="bulilogo" src="/imgs/leagues/bundesliga.png" alt="" onclick="bundesligaclick()">
+            <img class="leagueLogo" id="secbulilogo" src="/imgs/leagues/2bundesliga.png" alt="" onclick="secbundesligaclick()">
+            <img class="leagueLogo" id="drligalogo" src="/imgs/leagues/3liga.png" alt="" onclick="drligaclick()">
+            <img class="leagueLogo" id="premlogo" src="/imgs/leagues/premierleague.png" alt="" onclick="premclick()">
+            <img class="leagueLogo" id="eredivisielogo" src="/imgs/leagues/eredivisie.png" alt="" onclick="eredivisieclick()">
+            <img class="leagueLogo" id="laligalogo" src="/imgs/leagues/laliga.png" alt="" onclick="laligaclick()">
+            <img class="leagueLogo" id="seriealogo" src="/imgs/leagues/seriea.png" alt="" onclick="serieaclick()">
+        </div>
+        
+    </div>
+
+    <br>
+
+
+    <div id = "seasonsim" style="display: none;">
+        <div id = "gameDayButtonsDiv">
+            <button class = "gameDayButton" onclick="prevGameDay()">&lt;</button>
+            <h3 class = "underheader" id = "curGameDay">Spieltag: 1</h3>
+            <button class = "gameDayButton" onclick="nextGameDay()">&gt;</button>
+        </div>
+
+        <br>
+
+        <div id = "gameDays">
+            <div class = "gameDay" id = "gameDayTemplate">
+                <div class="game" style="display: none;">
+                    <div class="team-container">
+                        <div id="team1">FC Bayern München</div>
+                        <img id="team1logo" class="teamcrest" src="./imgs/teams/Bundesliga/bayern.png" alt="">
+                    </div>
+                
+                    <div id="score" class="score">TBD</div>
+                
+                    <div class="team-container">
+                        <img id="team2logo" class="teamcrest" src="./imgs/teams/Bundesliga/leverkusen.png" alt="">
+                        <div id="team2">Bayer 04 Leverkusen</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;" >
+            <button id = "simButton" onclick="simGameDay()">Simuliere Spieltag</button>
+            <button id = "simSeasonButton" onclick="simSeason(0)">Simuliere Saison</button>
+        </div>
+        <div style="justify-self: center;">
+            <input type="checkbox" id="experimentalMode" checked onclick="toggleExperimentalMode()">
+            <label for="experimentalMode">Experimentalmodus</label>        
+            <button for = "experimentalMode" id = "infoButton" onclick="document.getElementById('infoPrompt').style.display = 'flex'">i</button>    
+        </div>
+
+    </div>
+
+    <h2 hidden id="tableHeader">Tabelle:</h2>
+
+    <table id = table style="display: none;">    
+        <thead>
+            <tr>
+                <th>#</th>
+                <th></th>
+                <th>SP</th>
+                <th>G</th>
+                <th>U</th>
+                <th>V</th>
+                <th>+/-</th>    
+                <th>TD</th>
+                <th>PKT</th>
+            </tr>
+        </thead>
+        <tbody id = tablethings></tbody>
+    </table>
+
+    <div id = "tableFooter">
+        <h2>Infos:</h2>
+        <h3>Spielplan:</h3>
+        <h5>Der Spielplan wird anhand eines Schlüsselsystems generiert. <br>Er hat nichts mit den offizielen Spielplänen der Ligenverbände zu tun. <br>Damit ich nicht für jede Liga den Spielplan händisch für jede Saison erstellen muss, bin ich auf den Entschluss gekommen es so zu generieren. <br>Denn: Jedes Team muss ja sowieso zweimal gegen jedes antreten, es ist demnach egal.</h5>
+        <h3>Tabelle:</h3>
+        <h5>'#': Tabellenposition <br>'SP': Absolvierte Spiele <br>'G'; 'U'; 'V': Siege, Unentschieden und Niederlagen <br>'+/-': Geschossene Tore / Gegentore <br>'TD': Tordifferenz <br>'PKT': Punkte</h5>
+        <h3>Sonstige Abkürzungen:</h3>
+        <h5>'TBD': "To Be Determined" - Beutet übersetzt: Das Spiel ist noch nicht gespielt bzw. simuliert worden.</h5>
+    </div>
+    </div>
+
+    <script src="teams.js"></script>
+    <script src="seasonsim.js"></script>
+</body>
+</html>
